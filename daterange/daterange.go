@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/qor/admin"
+	"github.com/qor/qor/resource"
 )
 
 func init() {
@@ -60,4 +61,11 @@ func (dateRange *DateRange) Scan(value interface{}) error {
 // Value get value of dateRange
 func (dateRange DateRange) Value() (driver.Value, error) {
 	return json.Marshal(dateRange)
+}
+
+// ConfigureQorMeta configure qor meta
+func (dateRange DateRange) ConfigureQorMeta(metaor resource.Metaor) {
+	if meta, ok := metaor.(*admin.Meta); ok {
+		meta.Type = "daterange"
+	}
 }
