@@ -1,4 +1,4 @@
-package worker
+package frequency
 
 import (
 	"database/sql/driver"
