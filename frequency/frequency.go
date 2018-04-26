@@ -14,6 +14,11 @@ func init() {
 	admin.RegisterViewPath("github.com/qor/metas/frequency/views")
 }
 
+// Frequencier frequencier interface
+type Frequencier interface {
+	GetFrequency() *Frequency
+}
+
 // Frequency frequency struct
 type Frequency struct {
 	ScheduledStartAt *time.Time
