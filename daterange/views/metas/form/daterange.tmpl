@@ -1,6 +1,6 @@
 {{$dateRange := raw_value_of .ResourceValue .Meta}}
 
-<div class="" data-toggle="qor.metas.daterange">
+<div class="qor-fieldset" data-toggle="qor.metas.daterange">
   <div class="qor-field">
     <div class="mdl-textfield mdl-js-textfield">
       <label class="qor-field__label">
@@ -11,7 +11,7 @@
         {{.Value}}
       </div>
 
-      <select class="qor-field__input qor-daterange__selector" data-toggle="qor.chooser">
+      <select class="qor-field__input qor-daterange__selector" data-toggle="qor.chooser" name="">
         <option value="custom">custom</option>
         <option value="today">today</option>
         <option value="yesterday">yesterday</option>

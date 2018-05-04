@@ -29,7 +29,11 @@
         constructor: QorMetaDateRange,
 
         init: function() {
+            let $element = this.$element;
+            this.$selector = $element.find(CLASS_SELECTOR);
+            this.$inputs = $element.find(CLASS_INPUTS);
             this.bind();
+            this.initData();
         },
 
         bind: function() {
@@ -40,14 +44,15 @@
             this.$element.off(EVENT_CHANGE);
         },
 
-        change: function() {
-            let $selector = this.$element.find(CLASS_SELECTOR),
-                $inputs = this.$element.find(CLASS_INPUTS);
+        initData: function() {
+            this.change();
+        },
 
-            if ($selector.val() === 'custom') {
-                $inputs.show();
+        change: function() {
+            if (this.$selector.val() === 'custom') {
+                this.$inputs.show();
             } else {
-                $inputs.hide();
+                this.$inputs.hide();
             }
         },
 
