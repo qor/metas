@@ -12,12 +12,12 @@
 })(function($) {
     'use strict';
 
-    let $body = $('body'),
-        $document = $(document),
-        NAMESPACE = 'qor.metas.daterange',
-        EVENT_CLICK = 'click.' + NAMESPACE,
+    let NAMESPACE = 'qor.metas.daterange',
+        EVENT_CHANGE = 'change.' + NAMESPACE,
         EVENT_ENABLE = 'enable.' + NAMESPACE,
-        EVENT_DISABLE = 'disable.' + NAMESPACE;
+        EVENT_DISABLE = 'disable.' + NAMESPACE,
+        CLASS_SELECTOR = '.qor-daterange__selector',
+        CLASS_INPUTS = '.qor-daterange__inputs';
 
     function QorMetaDateRange(element, options) {
         this.$element = $(element);
@@ -29,13 +29,27 @@
         constructor: QorMetaDateRange,
 
         init: function() {
-            let $element = this.$element;
             this.bind();
         },
 
-        bind: function() {},
+        bind: function() {
+            this.$element.on(EVENT_CHANGE, CLASS_SELECTOR, this.change.bind(this));
+        },
 
-        unbind: function() {},
+        unbind: function() {
+            this.$element.off(EVENT_CHANGE);
+        },
+
+        change: function() {
+            let $selector = this.$element.find(CLASS_SELECTOR),
+                $inputs = this.$element.find(CLASS_INPUTS);
+
+            if ($selector.val() === 'custom') {
+                $inputs.show();
+            } else {
+                $inputs.hide();
+            }
+        },
 
         destroy: function() {
             this.unbind();
