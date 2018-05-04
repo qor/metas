@@ -14,6 +14,11 @@ func init() {
 	admin.RegisterViewPath("github.com/qor/metas/daterange/views")
 }
 
+// DateRanger date ranger interface
+type DateRanger interface {
+	GetDateRange() *DateRange
+}
+
 // RangeType range type
 type RangeType = string
 
@@ -68,4 +73,9 @@ func (dateRange DateRange) ConfigureQorMeta(metaor resource.Metaor) {
 	if meta, ok := metaor.(*admin.Meta); ok {
 		meta.Type = "daterange"
 	}
+}
+
+// GetDateRange get date range
+func (dateRange DateRange) GetDateRange() *DateRange {
+	return &dateRange
 }
