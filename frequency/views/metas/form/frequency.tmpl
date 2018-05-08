@@ -2,7 +2,6 @@
 
 <div class="qor-fieldset" data-toggle="qor.metas.frequency">
   <div class="qor-form-section-rows qor-section-columns-2 clearfix">
-    
     <div class="qor-field">
       <div class="mdl-textfield mdl-textfield--full-width mdl-js-textfield">
         <label class="qor-field__label" for="{{.InputId}}">
@@ -13,13 +12,12 @@
           {{.Value}}
         </div>
 
-        <select class="qor-field__input qor-frequency__selector" data-toggle="qor.chooser" name="">
+        <select class="qor-field__input qor-frequency__selector" data-toggle="qor.chooser" name="{{.InputName}}.IntervalUnit">
           <option value="once" selected>once</option>
           <option value="daily">daily</option>
           <option value="weekly">weekly</option>
           <option value="monthly">monthly</option>
         </select>
-
       </div>
     </div>
 
@@ -33,16 +31,14 @@
           {{.Value}}
         </div>
 
-        <select class="qor-field__input qor-frequency__activefor" data-toggle="qor.chooser" name="">
+        <select class="qor-field__input qor-frequency__activefor" data-toggle="qor.chooser" name="{{.InputName}}.ActiveMonths">
           <option value="1" selected>1 month</option>
           <option value="3">3 months</option>
           <option value="6">6 months</option>
           <option value="12">12 months</option>
         </select>
-          
       </div>
     </div>
-
   </div>
 
   <div class="qor-frequency__monthly">
@@ -55,50 +51,46 @@
         <div class="qor-field__show">
         </div>
 
-        <select class="qor-field__input" data-toggle="qor.chooser" name="">
+        <select class="qor-field__input" data-toggle="qor.chooser" name="{{.InputName}}.MonthDay">
           <option value="3">3</option>
           <option value="15">15</option>
         </select>
-
       </div>
     </div>
   </div>
 
   <div class="qor-frequency__weekly" style="display:;">
-      <div class="qor-field">
-        <div class="mdl-textfield mdl-textfield--full-width mdl-js-textfield">
-          <label class="qor-field__label">
-            Day of week
-          </label>
-  
-          <div class="qor-field__show">
-          </div>
-  
-          <select class="qor-field__input qor-frequency__weekly--input" style="display: none;" name="">
-            <option value="1" selected>mon</option>
-            <option value="2">tue</option>
-            <option value="3">wed</option>
-            <option value="4">thu</option>
-            <option value="5">fri</option>
-            <option value="6">sat</option>
-            <option value="7">sun</option>
-          </select>
+    <div class="qor-field">
+      <div class="mdl-textfield mdl-textfield--full-width mdl-js-textfield">
+        <label class="qor-field__label">
+          Day of week
+        </label>
 
-          <ul class="qor-frequency__week clearfix">
-            <li value="1" class="selected">Mon</li>
-            <li value="2">Tue</li>
-            <li value="3">Wed</li>
-            <li value="4">Thu</li>
-            <li value="5">Fri</li>
-            <li value="6">Sat</li>
-            <li value="7">Sun</li>
-          </ul>
-  
+        <div class="qor-field__show">
         </div>
+
+        <select class="qor-field__input qor-frequency__weekly--input" style="display: none;" name="{{.InputName}}.WeekDay">
+          <option value="1" selected>mon</option>
+          <option value="2">tue</option>
+          <option value="3">wed</option>
+          <option value="4">thu</option>
+          <option value="5">fri</option>
+          <option value="6">sat</option>
+          <option value="7">sun</option>
+        </select>
+
+        <ul class="qor-frequency__week clearfix">
+          <li value="1" class="selected">Mon</li>
+          <li value="2">Tue</li>
+          <li value="3">Wed</li>
+          <li value="4">Thu</li>
+          <li value="5">Fri</li>
+          <li value="6">Sat</li>
+          <li value="7">Sun</li>
+        </ul>
       </div>
     </div>
-
-
+  </div>
 </div>
 
 {{javascript_tag "frequency"}}
