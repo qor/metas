@@ -4,6 +4,7 @@ import (
 	"database/sql/driver"
 	"encoding/json"
 	"errors"
+	"reflect"
 	"strconv"
 	"time"
 
@@ -121,6 +122,8 @@ func (frequency Frequency) ConfigureQorMeta(metaor resource.Metaor) {
 					end := today.AddDate(0, 12, 0)
 					frequency.ScheduledEndAt = &end
 				}
+
+				reflect.Indirect(reflect.ValueOf(res)).FieldByName(meta.FieldName).Set(reflect.ValueOf(*frequency))
 			}
 		})
 	}
