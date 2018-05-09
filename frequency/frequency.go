@@ -93,7 +93,7 @@ func (frequency Frequency) ConfigureQorMeta(metaor resource.Metaor) {
 					if int(today.Weekday()) > weekDay {
 						since := today.AddDate(0, 0, weekDay-int(today.Weekday()))
 						frequency.ScheduledStartAt = &since
-					} else if int(today.Weekday()) > weekDay {
+					} else if int(today.Weekday()) < weekDay {
 						since := today.AddDate(0, 0, 7-int(today.Weekday()))
 						frequency.ScheduledStartAt = &since
 					}
