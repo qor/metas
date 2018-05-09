@@ -32,7 +32,8 @@
         </div>
 
         <select class="qor-field__input qor-frequency__activefor" data-toggle="qor.chooser" name="{{.InputName}}.ActiveMonths">
-          <option value="1" selected>1 month</option>
+          <option value="forever" selected>Forever</option>
+          <option value="1">1 month</option>
           <option value="3">3 months</option>
           <option value="6">6 months</option>
           <option value="12">12 months</option>
@@ -76,7 +77,7 @@
           <option value="4">thu</option>
           <option value="5">fri</option>
           <option value="6">sat</option>
-          <option value="7">sun</option>
+          <option value="0">sun</option>
         </select>
 
         <ul class="qor-frequency__week clearfix">
