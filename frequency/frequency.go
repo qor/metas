@@ -123,7 +123,12 @@ func (frequency Frequency) ConfigureQorMeta(metaor resource.Metaor) {
 					frequency.ScheduledEndAt = &end
 				}
 
-				reflect.Indirect(reflect.ValueOf(res)).FieldByName(meta.FieldName).Set(reflect.ValueOf(*frequency))
+				reflectValue := reflect.Indirect(reflect.ValueOf(res))
+				if reflectValue.IsValid() {
+					if field := reflectValue.FieldByName(meta.FieldName); field.CanAddr() {
+						field.Set(reflect.ValueOf(*frequency))
+					}
+				}
 			}
 		})
 	}
