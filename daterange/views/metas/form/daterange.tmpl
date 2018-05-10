@@ -11,12 +11,12 @@
         {{.Value}}
       </div>
 
-      <select class="qor-field__input qor-daterange__selector" data-toggle="qor.chooser" name="">
+      <select class="qor-field__input qor-daterange__selector" data-toggle="qor.chooser" name="{{.InputName}}.Type">
         <option value="custom">custom</option>
         <option value="today">today</option>
         <option value="yesterday">yesterday</option>
         <option value="last_week">last week</option>
-        <option value="last_month">last month</option>
+        <option value="last_month" selected>last month</option>
         <option value="last_7_days">last 7 days</option>
         <option value="last_30_days">last 30 days</option>
       </select>
