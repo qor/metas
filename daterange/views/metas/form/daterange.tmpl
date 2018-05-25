@@ -28,7 +28,7 @@
       <div class="mdl-textfield mdl-textfield--full-width mdl-js-textfield">
         <label class="qor-field__label mdl-textfield__label">from</label>
         <div class="qor-field__edit qor-field__datepicker" data-picker-type="date">
-          <input class="mdl-textfield__input qor-datepicker__input" placeholder="{{meta_placeholder .Meta .Context " YYYY-MM-DD "}}" type="text" id="{{.InputId}}" name="{{.InputName}}.From" value="{{if $dateRange.From}}{{$dateRange.From}}{{end}}" {{if  (not (has_change_permission .Meta)) }} disabled{{end}}>
+          <input class="mdl-textfield__input qor-datepicker__input" placeholder="{{meta_placeholder .Meta .Context " YYYY-MM-DD "}}" type="text" id="{{.InputId}}" name="{{.InputName}}.From" value="{{if $dateRange.From}}{{$dateRange.From.Format "2006-01-02"}}{{end}}" {{if  (not (has_change_permission .Meta)) }} disabled{{end}}>
 
           <div>
             <button data-toggle="qor.datepicker" class="mdl-button mdl-js-button mdl-button--icon qor-action__datepicker" type="button">
@@ -43,7 +43,7 @@
       <div class="mdl-textfield mdl-textfield--full-width mdl-js-textfield">
         <label class="qor-field__label mdl-textfield__label">to</label>
         <div class="qor-field__edit qor-field__datepicker" data-picker-type="date">
-          <input class="mdl-textfield__input qor-datepicker__input" placeholder="{{meta_placeholder .Meta .Context " YYYY-MM-DD "}}" type="text" id="{{.InputId}}" name="{{.InputName}}.Until" value="{{if $dateRange.Until}}{{$dateRange.Until}}{{end}}" {{if  (not (has_change_permission .Meta)) }} disabled{{end}}>
+          <input class="mdl-textfield__input qor-datepicker__input" placeholder="{{meta_placeholder .Meta .Context " YYYY-MM-DD "}}" type="text" id="{{.InputId}}" name="{{.InputName}}.Until" value="{{if $dateRange.Until}}{{$dateRange.Until.Format "2006-01-02"}}{{end}}" {{if  (not (has_change_permission .Meta)) }} disabled{{end}}>
 
           <div>
             <button data-toggle="qor.datepicker" class="mdl-button mdl-js-button mdl-button--icon qor-action__datepicker" type="button">
