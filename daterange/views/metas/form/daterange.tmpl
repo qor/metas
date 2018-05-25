@@ -12,13 +12,13 @@
       </div>
 
       <select class="qor-field__input qor-daterange__selector" data-toggle="qor.chooser" name="{{.InputName}}.Type">
-        <option value="custom">custom</option>
-        <option value="today">today</option>
-        <option value="yesterday">yesterday</option>
-        <option value="last_week">last week</option>
-        <option value="last_month" selected>last month</option>
-        <option value="last_7_days">last 7 days</option>
-        <option value="last_30_days">last 30 days</option>
+        <option value="custom" {{if eq $dateRange.Type "custom"}}selected{{end}}>custom</option>
+        <option value="today" {{if eq $dateRange.Type "today"}}selected{{end}}>today</option>
+        <option value="yesterday" {{if eq $dateRange.Type "yesterday"}}selected{{end}}>yesterday</option>
+        <option value="last_week" {{if eq $dateRange.Type "last_week"}}selected{{end}}>last week</option>
+        <option value="last_month" {{if eq $dateRange.Type "last_month"}}selected{{end}}>last month</option>
+        <option value="last_7_days" {{if eq $dateRange.Type "last_7_days"}}selected{{end}}>last 7 days</option>
+        <option value="last_30_days" {{if eq $dateRange.Type "last_30_days"}}selected{{end}}>last 30 days</option>
       </select>
     </div>
   </div>
