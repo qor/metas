@@ -31,7 +31,7 @@ type Frequency struct {
 	IntervalUnit     string // once, daily, weekly, monthly
 	Interval         *int
 
-	ActiveMonths int
+	ActiveMonths string
 	MonthDay     int
 	WeekDay      int
 }
@@ -83,9 +83,15 @@ func (frequency Frequency) ConfigureQorMeta(metaor resource.Metaor) {
 			}
 
 			today := time.Now()
-			if frequencier, ok := (res).(Frequencier); ok {
+			reflectValue := reflect.Indirect(reflect.ValueOf(res))
+
+			if frequencier, ok := (reflectValue.FieldByName(meta.FieldName).Interface()).(Frequencier); ok {
 				frequency := frequencier.GetFrequency()
 				frequency.IntervalUnit = intervalUnit
+				frequency.MonthDay = monthDay
+				frequency.WeekDay = weekDay
+				frequency.ActiveMonths = activeMonths
+
 				one := 1
 				switch intervalUnit {
 				case "once":
@@ -127,7 +133,6 @@ func (frequency Frequency) ConfigureQorMeta(metaor resource.Metaor) {
 					frequency.ScheduledEndAt = &end
 				}
 
-				reflectValue := reflect.Indirect(reflect.ValueOf(res))
 				if reflectValue.IsValid() {
 					if field := reflectValue.FieldByName(meta.FieldName); field.CanAddr() {
 						field.Set(reflect.ValueOf(*frequency))

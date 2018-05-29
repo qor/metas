@@ -32,11 +32,11 @@
         </div>
 
         <select class="qor-field__input qor-frequency__activefor" data-toggle="qor.chooser" name="{{.InputName}}.ActiveMonths">
-          <option value="-1" {{if eq $frequency.ActiveMonths -1}}selected{{end}}>Forever</option>
-          <option value="1" {{if eq $frequency.ActiveMonths -1}}selected{{end}}>1 month</option>
-          <option value="3" {{if eq $frequency.ActiveMonths -3}}selected{{end}}>3 months</option>
-          <option value="6" {{if eq $frequency.ActiveMonths -6}}selected{{end}}>6 months</option>
-          <option value="12" {{if eq $frequency.ActiveMonths -12}}selected{{end}}>12 months</option>
+          <option value="forever" {{if eq $frequency.ActiveMonths "forever"}}selected{{end}}>Forever</option>
+          <option value="1" {{if eq $frequency.ActiveMonths "1"}}selected{{end}}>1 month</option>
+          <option value="3" {{if eq $frequency.ActiveMonths "3"}}selected{{end}}>3 months</option>
+          <option value="6" {{if eq $frequency.ActiveMonths "6"}}selected{{end}}>6 months</option>
+          <option value="12" {{if eq $frequency.ActiveMonths "12"}}selected{{end}}>12 months</option>
         </select>
       </div>
     </div>
@@ -53,8 +53,8 @@
         </div>
 
         <select class="qor-field__input" data-toggle="qor.chooser" name="{{.InputName}}.MonthDay">
-          <option value="3" {{if eq $frequency.MonthDay -3}}selected{{end}}>3</option>
-          <option value="15" {{if eq $frequency.MonthDay -15}}selected{{end}}>15</option>
+          <option value="3" {{if eq $frequency.MonthDay 3}}selected{{end}}>3</option>
+          <option value="15" {{if eq $frequency.MonthDay 15}}selected{{end}}>15</option>
         </select>
       </div>
     </div>
@@ -71,23 +71,23 @@
         </div>
 
         <select class="qor-field__input qor-frequency__weekly--input" style="display: none;" name="{{.InputName}}.WeekDay">
-          <option value="1" {{if eq $frequency.WeekDay -1}}selected{{end}}>mon</option>
-          <option value="2" {{if eq $frequency.WeekDay -2}}selected{{end}}>tue</option>
-          <option value="3" {{if eq $frequency.WeekDay -3}}selected{{end}}>wed</option>
-          <option value="4" {{if eq $frequency.WeekDay -4}}selected{{end}}>thu</option>
-          <option value="5" {{if eq $frequency.WeekDay -5}}selected{{end}}>fri</option>
-          <option value="6" {{if eq $frequency.WeekDay -6}}selected{{end}}>sat</option>
-          <option value="0" {{if eq $frequency.WeekDay -0}}selected{{end}}>sun</option>
+          <option value="1" {{if eq $frequency.WeekDay 1}}selected{{end}}>Mon</option>
+          <option value="2" {{if eq $frequency.WeekDay 2}}selected{{end}}>Tue</option>
+          <option value="3" {{if eq $frequency.WeekDay 3}}selected{{end}}>Wed</option>
+          <option value="4" {{if eq $frequency.WeekDay 4}}selected{{end}}>Thu</option>
+          <option value="5" {{if eq $frequency.WeekDay 5}}selected{{end}}>Fri</option>
+          <option value="6" {{if eq $frequency.WeekDay 6}}selected{{end}}>Sat</option>
+          <option value="0" {{if eq $frequency.WeekDay 0}}selected{{end}}>Sun</option>
         </select>
 
         <ul class="qor-frequency__week clearfix">
-          <li value="1">Mon</li>
-          <li value="2">Tue</li>
-          <li value="3">Wed</li>
-          <li value="4">Thu</li>
-          <li value="5">Fri</li>
-          <li value="6">Sat</li>
-          <li value="7">Sun</li>
+          <li value="1" {{if eq $frequency.WeekDay 1}}selected{{end}}>Mon</li>
+          <li value="2" {{if eq $frequency.WeekDay 2}}selected{{end}}>Tue</li>
+          <li value="3" {{if eq $frequency.WeekDay 3}}selected{{end}}>Wed</li>
+          <li value="4" {{if eq $frequency.WeekDay 4}}selected{{end}}>Thu</li>
+          <li value="5" {{if eq $frequency.WeekDay 5}}selected{{end}}>Fri</li>
+          <li value="6" {{if eq $frequency.WeekDay 6}}selected{{end}}>Sat</li>
+          <li value="0" {{if eq $frequency.WeekDay 0}}selected{{end}}>Sun</li>
         </ul>
       </div>
     </div>
