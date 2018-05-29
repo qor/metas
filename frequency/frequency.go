@@ -34,6 +34,7 @@ type Frequency struct {
 	ActiveMonths string
 	MonthDay     int
 	WeekDay      int
+	StartAt      string
 }
 
 // Scan scan frequency value
