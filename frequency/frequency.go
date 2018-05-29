@@ -28,8 +28,12 @@ type Frequencier interface {
 type Frequency struct {
 	ScheduledStartAt *time.Time
 	ScheduledEndAt   *time.Time
-	IntervalUnit     string // hour, day, week, month
+	IntervalUnit     string // once, daily, weekly, monthly
 	Interval         *int
+
+	ActiveMonths int
+	MonthDay     int
+	WeekDay      int
 }
 
 // Scan scan frequency value
