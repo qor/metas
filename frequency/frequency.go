@@ -97,10 +97,13 @@ func (frequency Frequency) ConfigureQorMeta(metaor resource.Metaor) {
 				case "once":
 				case "daily":
 					frequency.Interval = &one
+					if frequency.ScheduledStartAt == nil {
+						frequency.ScheduledStartAt = &today
+					}
 				case "weekly":
 					frequency.Interval = &one
 
-					if int(today.Weekday()) > weekDay {
+					if int(today.Weekday()) >= weekDay {
 						since := today.AddDate(0, 0, weekDay-int(today.Weekday()))
 						frequency.ScheduledStartAt = &since
 					} else if int(today.Weekday()) < weekDay {
