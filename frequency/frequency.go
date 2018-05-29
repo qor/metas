@@ -113,7 +113,7 @@ func (frequency Frequency) ConfigureQorMeta(metaor resource.Metaor) {
 						since := today.AddDate(0, 0, monthDay-time.Now().Day())
 						frequency.ScheduledStartAt = &since
 					} else {
-						since := now.New(today).EndOfMonth().Add(time.Second).AddDate(0, 0, monthDay)
+						since := now.New(today).EndOfMonth().Add(time.Second).AddDate(0, 0, monthDay-1)
 						frequency.ScheduledStartAt = &since
 					}
 				}
