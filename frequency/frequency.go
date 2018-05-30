@@ -34,6 +34,7 @@ type Frequency struct {
 	ActiveMonths string
 	MonthDay     int
 	WeekDay      int
+	StartAt      string
 }
 
 // Scan scan frequency value
@@ -73,6 +74,7 @@ func (frequency Frequency) ConfigureQorMeta(metaor resource.Metaor) {
 			var (
 				intervalUnit   = utils.ToString(metaValue.MetaValues.Get("IntervalUnit").Value)
 				activeMonths   = utils.ToString(metaValue.MetaValues.Get("ActiveMonths").Value)
+				startAt        = utils.ToString(metaValue.MetaValues.Get("StartAt").Value)
 				monthDay, err1 = strconv.Atoi(utils.ToString(metaValue.MetaValues.Get("MonthDay").Value))
 				weekDay, err2  = strconv.Atoi(utils.ToString(metaValue.MetaValues.Get("WeekDay").Value))
 			)
@@ -91,6 +93,7 @@ func (frequency Frequency) ConfigureQorMeta(metaor resource.Metaor) {
 				frequency.MonthDay = monthDay
 				frequency.WeekDay = weekDay
 				frequency.ActiveMonths = activeMonths
+				frequency.StartAt = startAt
 
 				one := 1
 				switch intervalUnit {
@@ -118,6 +121,14 @@ func (frequency Frequency) ConfigureQorMeta(metaor resource.Metaor) {
 					} else {
 						since := now.New(today).EndOfMonth().Add(time.Second).AddDate(0, 0, monthDay-1)
 						frequency.ScheduledStartAt = &since
+					}
+				}
+
+				if frequency.ScheduledStartAt != nil {
+					if startAt, err := now.New(*frequency.ScheduledStartAt).Parse(frequency.StartAt); err == nil {
+						frequency.ScheduledStartAt = &startAt
+					} else {
+						context.AddError(err)
 					}
 				}
 
